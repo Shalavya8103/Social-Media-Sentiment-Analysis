@@ -31,9 +31,6 @@ project_directory/
 ├── main.py                   # Entry point - runs full pipeline
 ├── dashboard.py              # Interactive Streamlit dashboard
 ├── data/                     # Raw and processed data
-├── outputs/                  # Generated visualizations and results
-│   ├── forecasts/           # Prophet forecasting charts
-│   └── *.png                # Analysis visualizations
 ├── requirements.txt
 ├── README.md
 └── REPRODUCIBILITY.md        # Detailed reproducibility guide
@@ -163,18 +160,6 @@ sentiment_score = sentiment_analyzer.analyze(cleaned_text)
 forecast = forecaster.predict(time_series_data, periods=24)
 ```
 
-### Option 3: Custom Pipeline
-Build your own pipeline using specific components:
-```python
-from src.pipeline import AnalysisPipeline
-
-# Create custom pipeline with selected components
-pipeline = AnalysisPipeline(
-    steps=['preprocessing', 'sentiment', 'visualization']
-)
-pipeline.fit_transform(data)
-```
-
 ## Outputs and Demo
 
 ### Interactive Dashboard
@@ -191,26 +176,6 @@ The dashboard includes seven sections:
 - **Community Growth**: Subreddit activity and engagement metrics
 - **Forecasting**: Prophet predictions with confidence intervals
 - **Methodology**: Detailed explanation of our approach
-
-### Generated Outputs
-All visualizations and results are saved to the `outputs/` directory:
-- `ml_terms_trends.png` - Historical trends of top ML terms
-- `framework_comparison.png` - PyTorch vs TensorFlow adoption
-- `sentiment_analysis.png` - Sentiment distribution and trends over time
-- `community_growth.png` - Subreddit activity evolution
-- `deep_learning_revolution.png` - Key inflection point visualization
-- `forecasts/` - Prophet forecasting charts for each tracked term
-- `ml_reddit_analysis.db` - SQLite database with all processed data
-
-### Sample Visualizations
-![ML Terms Trends Over Time](outputs/ml_terms_trends.png)
-*Tracking the evolution of major ML terms from 2009-2020, showing the clear dominance of Deep Learning post-2015*
-
-![Framework Adoption](outputs/framework_comparison.png)
-*PyTorch overtaking TensorFlow in community discussions by 2019*
-
-![Sentiment Analysis](outputs/sentiment_analysis.png)
-*Community sentiment remains consistently positive (72% positive, mean: 0.15) across the 11-year period*
 
 ## Reproducibility
 For detailed instructions on reproducing this analysis, including environment setup, data acquisition, and step-by-step execution, please see **[REPRODUCIBILITY.md](REPRODUCIBILITY.md)**.
@@ -230,24 +195,12 @@ The reproducibility guide includes:
 - Traditional methods (SVM, Random Forest) declined significantly post-2015
 - **PyTorch** overtook **TensorFlow** in community mentions by 2019
 
-### Framework Adoption
-- **TensorFlow**: Dominated 2015-2018, now showing 5% growth rate
-- **PyTorch**: Rapid adoption from 2017, 35% acceleration predicted
-- **Keras**: Steady growth as high-level API
-- **Scikit-learn**: Consistent presence for traditional ML
-
 ### Sentiment Insights
 - Overall positive sentiment (mean: ~0.15)
 - 72% of posts show positive sentiment
 - Sentiment remained stable over time despite community growth
 - Comments slightly more positive than submissions
 - Deep Learning-related posts showed higher sentiment scores
-
-### Community Growth
-- Exponential growth after 2015 (AlexNet moment)
-- Peak activity: 2018-2020
-- Comments-to-posts ratio increased from 1.5 to 3.2
-- Active discussions increased 400% between 2015-2020
 
 ### Forecast (2020-2022)
 - **Deep Learning**: +25% growth predicted
@@ -257,31 +210,6 @@ The reproducibility guide includes:
 - **Community activity**: +30% growth predicted
 - **Sentiment**: Stable positive trend maintained
 
-## ML Terms Tracked (42 Total)
-**Models**: SVM, RNN, LSTM, GRU, CNN, Neural Network, Deep Learning, Random Forest, Decision Tree, XGBoost, Naive Bayes, KNN, Linear Regression, Logistic Regression
-
-**Architectures**: Transformer, BERT, GPT, ResNet, GAN, VAE, Autoencoder
-
-**Frameworks**: TensorFlow, PyTorch, Keras, Scikit-learn
-
-**Techniques**: ReLU, Sigmoid, Softmax, Adam, SGD, Dropout, Batch Normalization, Transfer Learning, Data Augmentation, Regularization
-
-**Areas**: NLP, Computer Vision, Reinforcement Learning, Classification, Regression, Clustering
-
-## Database Schema
-### submissions table
-- id, author, title, selftext, combined_text, cleaned_text
-- score, num_comments
-- created_utc, year, month, date
-- sentiment, sentiment_category
-- [42 ML term columns with counts]
-
-### comments table
-- id, author, body, cleaned_text
-- score, link_id, parent_id
-- created_utc, year, month, date
-- sentiment, sentiment_category
-- [42 ML term columns with counts]
 
 ## Technologies Used
 - **Python 3.9+**
@@ -298,12 +226,4 @@ The reproducibility guide includes:
 DS5110 - Data Science Project
 
 ## Authors
-[Your Name/Team Names]
-
-## License
-[Your License Choice]
-
-## Acknowledgments
-- Data sourced from Reddit via Pushshift API
-- VADER sentiment analysis tool
-- Facebook Prophet forecasting library
+Shalavya Agrawal, Tisha Kotadia, Meghana Narayana
