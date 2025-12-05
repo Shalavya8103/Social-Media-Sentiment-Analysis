@@ -1,4 +1,4 @@
-# MachineLearning Subreddit Analysis
+# Applied NLP Techniques for Sentiment Analysis of Social Media Data
 This project analyzes over a decade of discourse evolution in the MachineLearning subreddit, tracking the rise of deep learning, sentiment trends, and community growth from 2009 to 2020. The analysis includes time-series forecasting to predict future trends.
 
 ## Project Goal
